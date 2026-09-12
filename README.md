@@ -1,4 +1,4 @@
-# AeroTTA
+# AeroTTA: Dual-Granularity Low-Rank Test-Time Adaptation for Open-Vocabulary UAV Semantic Segmentation
 
 ## Environment Setup
 
