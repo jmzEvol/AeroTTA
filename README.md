@@ -1,7 +1,8 @@
 # AeroTTA: Dual-Granularity Low-Rank Test-Time Adaptation for Open-Vocabulary UAV Semantic Segmentation
 
 ## Environment Setup
-
+###  Install SAM3 and runtime dependencies
+```bash
 conda create -n sam3 python=3.12 -y
 conda activate sam3
 pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 \
@@ -15,9 +16,6 @@ same environment. If MIM cannot find a compatible wheel, it will build MMCV
 from source and requires a local CUDA toolkit compatible with the installed
 PyTorch build.
 
-### 4. Install SAM3 and runtime dependencies
-
-```bash
 pip install \
   timm==1.0.22 \
   numpy==1.26.4 \
@@ -37,21 +35,6 @@ pip install \
   psutil
 ```
 
-### 5. Verify the installation
-
-```bash
-python -c "import torch, torchvision, mmcv, mmengine, mmseg; \
-print('torch:', torch.__version__); \
-print('torchvision:', torchvision.__version__); \
-print('CUDA:', torch.version.cuda, torch.cuda.is_available()); \
-print('mmcv:', mmcv.__version__); \
-print('mmengine:', mmengine.__version__); \
-print('mmseg:', mmseg.__version__)"
-
-python -c "from mmcv.ops import roi_align; \
-from torchvision.ops import roi_align as tv_roi_align; \
-print('compiled ops: OK')"
-```
 
 ## Checkpoint and Data
 
