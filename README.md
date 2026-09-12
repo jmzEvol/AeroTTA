@@ -75,9 +75,7 @@ Dataset downloads:
 For the Potsdam, Vaihingen, and UAVid conversion/cropping protocol, refer to
 the [SegEarth-OV dataset preparation guide](https://github.com/likyoo/SegEarth-OV/blob/main/dataset_prepare.md).
 
-The `data/` directory is excluded by `.gitignore`; do not commit datasets to
-the repository. Run all commands from the repository root because checkpoint
-and dataset paths are relative to this directory.
+
 
 ## Model evaluation
 
