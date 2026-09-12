@@ -1,36 +1,42 @@
 # AeroTTA: Dual-Granularity Low-Rank Test-Time Adaptation for Open-Vocabulary UAV Semantic Segmentation
 
 ## Environment Setup
-###  Install SAM3 and runtime dependencies
-```bash
-conda create -n sam3 python=3.12 -y
-conda activate sam3
-pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 \
-  --index-url https://download.pytorch.org/whl/cu126
-pip install -U openmim
-mim install "mmengine==0.10.4"
-mim install "mmcv==2.1.0"
-pip install "mmsegmentation==1.2.2"
 
-pip install \
-  timm==1.0.22 \
-  numpy==1.26.4 \
-  tqdm==4.65.2 \
-  ftfy==6.1.1 \
-  regex \
-  iopath==0.1.10 \
-  typing_extensions \
-  huggingface_hub \
-  pillow \
-  opencv-python \
-  einops \
-  scipy \
-  scikit-image \
-  matplotlib \
-  pyyaml \
-  psutil
+The code has been tested with Python 3.12, PyTorch 2.7.0, CUDA 12.6,
+MMCV 2.1.0, MMEngine 0.10.4, and MMSegmentation 1.2.2.
+
+Create the environment from the provided file:
+
+```bash
+conda env create -f environment.yml
+conda activate aerotta
 ```
 
+Install the full MMCV package after PyTorch is available:
+
+```bash
+mim install "mmcv==2.1.0"
+```
+
+Use `mmcv`, not `mmcv-lite`, and do not install both in the same environment.
+If MIM cannot find a compatible binary wheel, building MMCV from source requires
+a local CUDA toolkit compatible with the installed PyTorch CUDA build.
+
+Verify the core runtime:
+
+```bash
+python -c "import torch, torchvision, mmcv, mmengine, mmseg; \
+print('torch:', torch.__version__); \
+print('torchvision:', torchvision.__version__); \
+print('CUDA:', torch.version.cuda, torch.cuda.is_available()); \
+print('mmcv:', mmcv.__version__); \
+print('mmengine:', mmengine.__version__); \
+print('mmseg:', mmseg.__version__)"
+
+python -c "from mmcv.ops import roi_align; \
+from torchvision.ops import roi_align as tv_roi_align; \
+print('compiled ops: OK')"
+```
 
 ## Checkpoint and Data
 
