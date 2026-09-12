@@ -1,9 +1,9 @@
 # AeroTTA: Dual-Granularity Low-Rank Test-Time Adaptation for Open-Vocabulary UAV Semantic Segmentation
 
-**Mingzhong Jiang<sup>1</sup>, Shaoyuan Li<sup>1,*</sup>**
-
-<sup>1</sup>Nanjing University of Aeronautics and Astronautics, Nanjing, China<br>
-<sup>*</sup>Corresponding author
+<p align="center">
+  <strong>Mingzhong Jiang<sup>1</sup>, Shaoyuan Li<sup>1,*</sup></strong><br>
+  <sup>1</sup>Nanjing University of Aeronautics and Astronautics, Nanjing, China<br>
+</p>
 
 ## Abstract
 
