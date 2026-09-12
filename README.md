@@ -11,10 +11,6 @@ pip install -U openmim
 mim install "mmengine==0.10.4"
 mim install "mmcv==2.1.0"
 pip install "mmsegmentation==1.2.2"
-Use the full `mmcv` package, not `mmcv-lite`, and do not install both in the
-same environment. If MIM cannot find a compatible wheel, it will build MMCV
-from source and requires a local CUDA toolkit compatible with the installed
-PyTorch build.
 
 pip install \
   timm==1.0.22 \
