@@ -2,32 +2,14 @@
 
 ## Environment Setup
 
-The code has been tested with Python 3.12, PyTorch 2.7.0, CUDA 12.6,
-MMCV 2.1.0, MMEngine 0.10.4, and MMSegmentation 1.2.2.
-
-### 1. Create the Conda environment
-
-```bash
 conda create -n sam3 python=3.12 -y
 conda activate sam3
-```
-
-### 2. Install PyTorch
-
-```bash
 pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 \
   --index-url https://download.pytorch.org/whl/cu126
-```
-
-### 3. Install OpenMMLab packages
-
-```bash
 pip install -U openmim
 mim install "mmengine==0.10.4"
 mim install "mmcv==2.1.0"
 pip install "mmsegmentation==1.2.2"
-```
-
 Use the full `mmcv` package, not `mmcv-lite`, and do not install both in the
 same environment. If MIM cannot find a compatible wheel, it will build MMCV
 from source and requires a local CUDA toolkit compatible with the installed
