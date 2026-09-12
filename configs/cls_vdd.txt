@@ -1,0 +1,7 @@
+background,other
+wall
+road
+vegetation,tree
+vehicle,car
+roof
+water

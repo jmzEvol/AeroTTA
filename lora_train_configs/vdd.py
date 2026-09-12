@@ -1,0 +1,45 @@
+CONFIG = dict(
+    dataset_name="VDD",
+    data_root="data/VDD",
+    classname_path="configs/cls_vdd.txt",
+    reduce_zero_label=False,
+    train_dataloader=dict(
+        batch_size=4,
+        num_workers=4,
+        persistent_workers=True,
+        sampler=dict(type="DefaultSampler", shuffle=True, round_up=True),
+        dataset=dict(
+            type="VDDDataset",
+            data_root="data/VDD",
+            data_prefix=dict(img_path="train/src", seg_map_path="train/gt"),
+            pipeline=[
+                dict(type="LoadImageFromFile"),
+                dict(type="LoadAnnotations"),
+                dict(type="PackSegInputs"),
+            ],
+        ),
+    ),
+    val_dataloader=dict(
+        enabled=True,
+        batch_size=4,
+        num_workers=4,
+        persistent_workers=True,
+        sampler=dict(type="DefaultSampler", shuffle=False, round_up=False),
+        dataset=dict(
+            type="VDDDataset",
+            data_root="data/VDD",
+            data_prefix=dict(img_path="val/src", seg_map_path="val/gt"),
+            pipeline=[
+                dict(type="LoadImageFromFile"),
+                dict(type="LoadAnnotations"),
+                dict(type="PackSegInputs"),
+            ],
+        ),
+    ),
+    validate=True,
+    val_interval=1,
+    best_metric="miou",
+    best_metric_mode="max",
+    val_prediction_mode="gate",
+    save_dir="work_dirs/Train_lora/vdd/test2",
+)

@@ -1,0 +1,7 @@
+background,other
+building,house
+road
+car,vehicle
+tree,forest tree
+vegetation,low vegetation
+human,person

@@ -1,0 +1,28 @@
+data/
+work_dirs/
+work_dirs_tta/
+weight/
+DM-POSA/
+
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.dist_test/
+.vscode/
+.agents/
+.codex/
+
+# Local-only diagnostics (never upload)
+local_only/
+
+# Generated packaging/build metadata
+*.egg-info/
+build/
+dist/
+
+# Local editor/backup artifacts
+*.orig
+*.bak

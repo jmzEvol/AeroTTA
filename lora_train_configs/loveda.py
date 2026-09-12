@@ -1,0 +1,47 @@
+CONFIG = dict(
+    dataset_name="LoveDA",
+    data_root="data/LoveDA",
+    classname_path="configs/cls_loveda_train.txt",
+    reduce_zero_label=True,
+    train_dataloader=dict(
+        batch_size=4,
+        num_workers=4,
+        persistent_workers=True,
+        sampler=dict(type="DefaultSampler", shuffle=True, round_up=True),
+        dataset=dict(
+            type="LoveDADataset",
+            data_root="data/LoveDA",
+            reduce_zero_label=True,
+            data_prefix=dict(img_path="img_dir/train", seg_map_path="ann_dir/train"),
+            pipeline=[
+                dict(type="LoadImageFromFile"),
+                dict(type="LoadAnnotations"),
+                dict(type="PackSegInputs"),
+            ],
+        ),
+    ),
+    val_dataloader=dict(
+        enabled=False,
+        batch_size=4,
+        num_workers=4,
+        persistent_workers=True,
+        sampler=dict(type="DefaultSampler", shuffle=False, round_up=False),
+        dataset=dict(
+            type="LoveDADataset",
+            data_root="data/LoveDA",
+            reduce_zero_label=True,
+            data_prefix=dict(img_path="img_dir/val", seg_map_path="ann_dir/val"),
+            pipeline=[
+                dict(type="LoadImageFromFile"),
+                dict(type="LoadAnnotations"),
+                dict(type="PackSegInputs"),
+            ],
+        ),
+    ),
+    validate=False,
+    val_interval=1,
+    best_metric="miou",
+    best_metric_mode="max",
+    val_prediction_mode="gate",
+    save_dir="work_dirs/Train_lora/loveda/test3",
+)
